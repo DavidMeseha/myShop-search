@@ -33,7 +33,7 @@ func GetMainDB() *mongo.Database {
 }
 
 func GetSrcDB() *mongo.Database {
-	database := os.Getenv("MONGODB")
+	database := os.Getenv("MONGODB_SRC")
 	if database == "" {
 		database = "shop_dashboard"
 	}

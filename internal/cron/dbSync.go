@@ -19,14 +19,13 @@ func SyncCollections(srcDB, dstDB *mongo.Database, collections []string) error {
 		if err != nil {
 			return err
 		}
-		var docs []interface{}
+		var docs []bson.M
 		if err := cursor.All(ctx, &docs); err != nil {
 			return err
 		}
 
 		for _, doc := range docs {
-			// Upsert by _id
-			id := doc.(bson.M)["_id"]
+			id := doc["_id"]
 			_, err := dstCol.ReplaceOne(ctx, bson.M{"_id": id}, doc, options.Replace().SetUpsert(true))
 			if err != nil {
 				log.Printf("Upsert error for %s: %v", col, err)
