@@ -21,7 +21,7 @@ func NewRouter() *chi.Mux {
 	r.Get("/health", h.HealthCheck)
 
 	// API routes
-	r.Get("/api/v1/find", h.FindInAll)
+	r.Post("/api/v1/find", h.FindInAll)
 	r.Get("/api/v1/refresh", h.RefreshHandler)
 
 	return r

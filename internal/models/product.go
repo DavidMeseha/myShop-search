@@ -76,7 +76,7 @@ type Product struct {
 
 	// Basic Fields
 	Name   string `json:"name" bson:"name"`
-	SeName string `json:"se_name" bson:"seName"`
+	SeName string `json:"seName" bson:"seName"`
 	SKU    string `json:"sku" bson:"sku"`
 
 	// Media Fields
